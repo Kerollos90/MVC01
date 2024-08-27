@@ -52,7 +52,10 @@ internal class Program
                 var id = context.Request.RouteValues["id"];
                 await context.Response.WriteAsync($"You are In Product Id => {id}");
 
-            });
+            }); 
+            
+            
+           
             
             endpoints.MapGet("/Books/{id}/{name}", async context =>
             {
@@ -63,11 +66,17 @@ internal class Program
 
             });
 
-            endpoints.MapGet("/Books/{id}", async context =>
+            endpoints.MapGet("/Books/{id:int?}", async context =>
             {
-                var id = context.Request.RouteValues["id"];
+                var idData = context.Request.RouteValues["id"];
 
-                await context.Response.WriteAsync($"Your Book Id =>{id}");
+                if (idData is not null)
+                {
+                    int id = Convert.ToInt32(idData);
+                  await context.Response.WriteAsync($"Your Book Id =>{id}");
+                }
+                else
+                    await context.Response.WriteAsync("Your Book Id Is Empty");
 
             });
 
