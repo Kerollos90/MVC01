@@ -40,10 +40,34 @@ internal class Program
 
             });
 
-            endpoints.MapPost("/Product", async context =>
+            endpoints.MapGet("/Product", async context =>
             {
 
                 await context.Response.WriteAsync("You are In Product Page");
+
+            });
+
+            endpoints.MapGet("/Product/{id}", async context =>
+            {
+                var id = context.Request.RouteValues["id"];
+                await context.Response.WriteAsync($"You are In Product Id => {id}");
+
+            });
+            
+            endpoints.MapGet("/Books/{id}/{name}", async context =>
+            {
+                var id = context.Request.RouteValues["id"];
+                var name = context.Request.RouteValues["Name"];
+
+                await context.Response.WriteAsync($"Your Book Id =>{id} , Name => {name}");
+
+            });
+
+            endpoints.MapGet("/Books/{id}", async context =>
+            {
+                var id = context.Request.RouteValues["id"];
+
+                await context.Response.WriteAsync($"Your Book Id =>{id}");
 
             });
 
