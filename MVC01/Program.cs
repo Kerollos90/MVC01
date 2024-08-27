@@ -9,6 +9,20 @@ internal class Program
         app.UseRouting();
 
 
+        app.Use(async (context, next) => {
+            Endpoint endpoint = context.GetEndpoint();
+
+            if(endpoint is null)
+                await context.Response.WriteAsync("=====");
+
+
+            await next();
+         
+        
+        
+        });
+
+
 
         app.UseEndpoints(endpoints =>
         {
