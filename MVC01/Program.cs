@@ -4,10 +4,11 @@ internal class Program
     {
         //dev
         var builder = WebApplication.CreateBuilder(args);
-        builder.Services.AddControllers();
+        builder.Services.AddControllersWithViews();
         
         var app = builder.Build();
         app.UseRouting();
+        app.UseStaticFiles();
 
         #region MyRegion
 

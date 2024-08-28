@@ -4,18 +4,29 @@ namespace MVC01.Controllers
 {
     public class HomeController : Controller
     {
-        public string Index()
+        public IActionResult Index()
         {
-            return "Hello ";
+            return View();
+
         }
+
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+
+        public IActionResult ContactUs()
+        { 
+            return View();
         
-        public ActionResult AboutUs()
-        {
-            return Content("AboutUs ");
+        
         }
-        public ActionResult Url()
+
+
+
+        public IActionResult Privacy()
         {
-            return Redirect("https://localhost:44364/home/aboutus");
+            return View();
         }
     }
 }
