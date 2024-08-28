@@ -10,10 +10,26 @@
 <body>
     <header>
         <center>
-            <a href="/Home/Index" class="btn btn-primary">Home</a>
+          @*1.html tag*@         
+          @*<a href="/Home/Index" class="btn btn-primary">Home</a>
             <a href="/Home/AboutUs" class="btn btn-danger">AboutUs</a>
             <a href="/Home/ContactUs" class="btn btn-secondary">ContactUs</a>
-            <a href="/Home/Privacy" class="btn btn-dark">Privacy</a>
+            <a href="/Home/Privacy" class="btn btn-dark">Privacy</a> *@
+
+            @* 2.html helper *@
+           @*  @Html.ActionLink("Index", "Index", "Home", null, new{@class="btn btn-primary"});
+            @Html.ActionLink("AboutUs", "AboutUs", "Home", null, new { @class = "btn btn-danger"});
+            @Html.ActionLink("ContactUs", "ContactUs", "Home", null, new { @class = "btn btn-secondary" });
+            @Html.ActionLink("Privacy", "Privacy", "Home", null, new {@class="btn btn-dark"}); *@
+
+           @*  3.tag helper *@
+           @*  <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Home</a>
+            <a asp-controller="Home" asp-action="AboutUs" class="btn btn-danger">AboutUs</a>
+            <a asp-controller="Home" asp-action="ContactUs" class="btn btn-secondary">ContactUs</a>
+            <a asp-controller="Home" asp-action="Privacy" class="btn btn-dark">Privacy</a> *@
+            
+            
+
         </center>
 
         <div>
